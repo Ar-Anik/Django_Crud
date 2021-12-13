@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block main %}
+	<br>
+	<form method="POST", enctype="multipart/form-data">
+		{% csrf_token %}
+
+		<div class="form-row">
+      			<div class="form-group col-md-6 mb-0">
+        			{{ form.name|as_crispy_field }}
+     			 </div>
+      			 <div class="form-group col-md-6 mb-0">
+        			{{ form.email|as_crispy_field }}
+      			 </div>
+   	        </div>
+
+    		<div class="form-row">
+      			<div class="form-group col-md-6 mb-0">
+       			 	{{ form.father_name|as_crispy_field }}
+      			</div>
+      			<div class="form-group col-md-6 mb-0">
+        			{{ form.mother_name|as_crispy_field }}
+      			</div>
+    	       </div>
+    	       {{ form.number|as_crispy_field }}
+	       {{ form.student_image|as_crispy_field }}
+
+	       <button type="submit" class="btn btn-primary"> Submit </button>
+	</form>
+
+{% endblock %}
