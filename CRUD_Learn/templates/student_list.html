@@ -1,0 +1,42 @@
+{% include 'main.html' %}
+
+{% block main %}
+<div class="container">
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Father Name</th>
+      <th scope="col">Mother Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Number</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+   {% for p in data %}
+    <tr>
+      <th scope="row">{{ p.name }}</th>
+      <td>{{ p.father_name }}</td>
+      <td>{{ p.mother_name }}</td>
+      <td>{{ p.email }}</td>
+      <td>{{ p.number }}</td>
+  
+      <td>
+	   <button type="button" class="btn btn-warning"> 
+		   <a href="{% url 'student_update' id=p.id %}">Update</a> 
+	   </button>
+	   <button type="button" class="btn btn-warning"> 
+		   <a href="{% url 'student_detail' id=p.id %}">View</a>
+	   </button>
+	   <button type="button" class="btn btn-warning"> 
+		   <a href="{% url 'student_delete' id=p.id %}">Delete</a>
+	   </button>
+      </td>
+    </tr>
+  {% endfor %}
+ </tbody>
+</table>
+</div>
+{% endblock %}

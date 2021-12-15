@@ -16,3 +16,9 @@ class Student_Admission(models.Model):
     def __str__(self):
         return self.name
 
+    def image_url(self):
+        if self.student_image:
+            return self.student_image.url
+        else:
+            return ""
+
